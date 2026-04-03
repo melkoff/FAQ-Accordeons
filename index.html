@@ -268,6 +268,91 @@
       </div>
     </div>
 
+
+    <!-- Acc with popup-->
+     <h2 style="text-align: center; margin: 150px 0 0 0">Акордеон з попапом</h2>
+     <section class="locations-section" style="margin-bottom: 300px;">
+  <div class="locations-bg-gradient">
+    <div class="locations-content-wrapper">
+
+      <div class="location-finder-card">
+        <h3>How to find us</h3>
+        <p>Coming from a nearby city? Select your location for directions to our Guelph clinic.</p>
+
+        <div class="metro-list">
+          <div class="metro-item">
+            <span>From Burlington</span>
+            <span class="arrow">›</span>
+          </div>
+          
+          <div class="city-list-wrapper">
+            <div class="city-list">
+              <div
+                class="city-item"
+                data-title="Burlington Clinic"
+                data-address="77 Westmount Road, Suite 201, Guelph"
+                data-phone="Tel: (123) 456-7890"
+                data-hours="Work Time: 7:00 AM - 10:00 PM; SAT-SUN: 7:00 AM - 8:00 PM"
+                data-map-link="https://maps.google.com"
+              >
+                See how to find us in Burlington
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metro-list">
+          <div class="metro-item">
+            <span>From Hamilton</span>
+            <span class="arrow">›</span>
+          </div>
+
+          <div class="city-list-wrapper">
+            <div class="city-list">
+              <div
+                class="city-item"
+                data-title="Hamilton Clinic"
+                data-address="123 Main Street, Hamilton"
+                data-phone="Tel: (098) 765-4321"
+                data-hours="Work Time: 8:00 AM - 8:00 PM; SAT-SUN: Closed"
+                data-map-link="https://maps.google.com"
+              >
+                See how to find us in Hamilton
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="location-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close-btn">×</button>
+        <div class="modal-body">
+          <h3 id="modal-city-name"></h3>
+
+          <div class="detail-row">
+            <span class="icon location-icon">📍</span> <p id="modal-address"></p>
+          </div>
+
+          <div class="detail-row">
+            <span class="icon phone-icon">📞</span>
+            <a href="#" id="modal-phone" class="modal-phone-link"></a>
+          </div>
+
+          <div class="detail-row hours-row">
+            <span class="icon hours-icon">🕒</span>
+            <div id="modal-hours-text"></div>
+          </div>
+
+          <a href="#" id="modal-map-link" class="view-map-btn" target="_blank">View on Map</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     <script src="script.js"></script>
   </body>
 </html>
