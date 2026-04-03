@@ -1,0 +1,365 @@
+:root {
+  --primary-dark: #0A314D; /* Темно-синій колір клініки */
+  --text-gray: #6B7A85;
+  --border-color: #D3DFE8;
+  --bg-light: #F4F7F9;
+  --white: #FFFFFF;
+  --transition-speed: 0.35s;
+}
+
+.directions-section, .accordion-v2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--primary-dark);
+}
+
+/* Заголовки над акордеоном */
+.directions-header .subtitle {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.directions-header h2 {
+  font-size: 32px;
+  margin: 0 0 12px 0;
+}
+.directions-header .description {
+  color: var(--text-gray);
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+/* Сітка акордеонів */
+.accordion-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .accordion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Окремий елемент акордеону */
+.accordion-item {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--white);
+  overflow: hidden; /* Важливо для заокруглення кутів при зміні фону */
+  transition: border-color var(--transition-speed) ease;
+}
+
+/* Кнопка-тригер (Шапка) */
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-dark);
+  border-radius: 50%;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.trigger-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.city-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  transition: color var(--transition-speed) ease;
+}
+
+.time-subtitle {
+  font-size: 14px;
+  color: var(--text-gray);
+  transition: color var(--transition-speed) ease;
+}
+
+/* Іконка + / - */
+.trigger-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-dark);
+  transition: all var(--transition-speed) ease;
+}
+
+.icon-minus { display: none; }
+.icon-plus { width: 16px; height: 16px; }
+
+/* Плавне відкриття контенту через Grid */
+.accordion-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content {
+  overflow: hidden;
+}
+
+.content-inner {
+  padding: 0 24px 24px 24px; /* Паддінг знизу та по боках */
+  border-top: 1px solid transparent;
+}
+
+/* Внутрішні елементи контенту */
+.drive-time-badge {
+  background-color: var(--bg-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  display: block;
+}
+
+/* 1. Обнуляємо лічильник для кожного списку кроків */
+.steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  counter-reset: steps-counter; /* Створюємо лічильник кроків */
+}
+
+/* 2. Кожен елемент списку збільшує лічильник */
+.steps-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  counter-increment: steps-counter; /* Додаємо +1 */
+}
+
+/* 3. Виводимо номер усередині кружечка step-number */
+.step-number::before {
+  content: counter(steps-counter); /* Виводить 1, 2, 3... */
+  /* Стилі залишаються ті самі, що були раніше */
+}
+
+/* Оновлюємо сам клас step-number (прибираємо фіксовану висоту/ширину, якщо треба, або просто залишаємо для центрування) */
+.step-number {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-dark);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.arrival-info {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--primary-dark);
+  border-top: 1px solid var(--border-color);
+  padding-top: 16px;
+}
+
+/* === АКТИВНИЙ СТАН (ВІДКРИТО) === */
+.accordion-item.is-active {
+  border-color: var(--primary-dark);
+}
+
+.accordion-item.is-active .accordion-trigger {
+  background-color: var(--primary-dark);
+}
+
+.accordion-item.is-active .city-title,
+.accordion-item.is-active .time-subtitle {
+  color: var(--white);
+}
+
+.accordion-item.is-active .time-subtitle {
+  opacity: 0.8;
+}
+
+.accordion-item.is-active .dot {
+  background-color: var(--white);
+}
+
+.accordion-item.is-active .trigger-icon {
+  background-color: rgba(255, 255, 255, 0.15); /* Світлий фон іконки */
+  border-color: transparent;
+  color: var(--white);
+}
+
+.accordion-item.is-active .icon-plus { display: none; }
+.accordion-item.is-active .icon-minus { display: block; width: 16px; height: 16px; }
+
+.accordion-item.is-active .accordion-content-wrapper {
+  grid-template-rows: 1fr; /* Анімація розкриття */
+}
+
+
+
+/* =============== SECOND ACCORDEON ================== */
+.accordion-v2 {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  counter-reset: acc-counter; /* Обнуляємо лічильник при старті секції */
+}
+
+/* Кожен елемент акордеона збільшує лічильник на 1 */
+.acc-v2-item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+  counter-increment: acc-counter; /* Додаємо +1 до acc-counter */
+}
+
+/* Виводимо номер через псевдоелемент ::before */
+.acc-v2-number::before {
+  /* counter(назва, формат) — формат 'decimal-leading-zero' додає нуль попереду (01, 02...) */
+  content: counter(acc-counter, decimal-leading-zero); 
+  font-size: 24px;
+  font-weight: 800;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+}
+
+/* Колір номера при відкритті */
+.acc-v2-item.is-active .acc-v2-number::before {
+  color: #0A314D;
+}
+
+.acc-v2-header {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.acc-v2-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+}
+
+.acc-v2-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.acc-v2-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.acc-v2-question {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.acc-v2-toggle {
+  width: 40px;
+  height: 40px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.acc-v2-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.acc-v2-content { overflow: hidden; }
+
+.acc-v2-inner {
+  padding: 0 24px 24px 64px; /* Зміщення, щоб текст був під питанням */
+  color: #555;
+  line-height: 1.6;
+}
+
+.acc-v2-inner .list-v2{
+  margin: 0 0 24px 0;
+  list-style: decimal-leading-zero;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.acc-v2-inner .drive-info-v2{
+    font-weight: 700;
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+    
+}
+
+/* Активний стан */
+.acc-v2-item.is-active {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-color: #eee;
+  transform: translateY(-2px);
+}
+
+.acc-v2-item.is-active .acc-v2-number {
+  color: #0A314D;
+}
+
+.acc-v2-item.is-active .acc-v2-toggle {
+  background: #0A314D;
+  color: #fff;
+  transform: rotate(45deg); /* Плюс перетворюється на ікс */
+}
+
+.acc-v2-item.is-active .acc-v2-content-wrapper {
+  grid-template-rows: 1fr;
+}
