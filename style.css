@@ -197,6 +197,7 @@
 /* === АКТИВНИЙ СТАН (ВІДКРИТО) === */
 .accordion-item.is-active {
   border-color: var(--primary-dark);
+  align-self: stretch;
 }
 
 .accordion-item.is-active .accordion-trigger {
