@@ -1,17 +1,8 @@
-:root {
-  --primary-dark: #0A314D;
-  --text-gray: #6B7A85;
-  --border-color: #D3DFE8;
-  --bg-light: #F4F7F9;
-  --white: #FFFFFF;
-  --transition-speed: 0.35s;
-}
-
 .directions-section {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   max-width: 900px;
   margin: 0 auto;
-  color: var(--primary-dark);
+  color: #0A314D;
 }
 
 .directions-header .subtitle {
@@ -24,7 +15,7 @@
   margin: 0 0 12px 0;
 }
 .directions-header .description {
-  color: var(--text-gray);
+  color: #6B7A85;
   margin-bottom: 30px;
   font-size: 16px;
 }
@@ -42,11 +33,11 @@
 }
 
 .accordion-item {
-  border: 1px solid var(--border-color);
+  border: 1px solid #D3DFE8;
   border-radius: 12px;
-  background-color: var(--white);
+  background-color: #FFF;
   overflow: hidden;
-  transition: border-color var(--transition-speed) ease;
+  transition: border-color 0.35s ease;
   display: flex;
   flex-direction: column;
 }
@@ -61,7 +52,8 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  transition: background-color var(--transition-speed) ease;
+  transition: background-color 0.35s ease;
+  background-color: #FFF !important;
 }
 
 .trigger-left {
@@ -73,9 +65,9 @@
 .dot {
   width: 8px;
   height: 8px;
-  background-color: var(--primary-dark);
+  background-color: #0A314D;
   border-radius: 50%;
-  transition: background-color var(--transition-speed) ease;
+  transition: background-color 0.35s ease;
 }
 
 .trigger-text {
@@ -87,26 +79,26 @@
 .city-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--primary-dark);
-  transition: color var(--transition-speed) ease;
+  color: #0A314D;
+  transition: color 0.35s ease;
 }
 
 .time-subtitle {
   font-size: 14px;
-  color: var(--text-gray);
-  transition: color var(--transition-speed) ease;
+  color: #6B7A85;
+  transition: color 0.35s ease;
 }
 
 .trigger-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid var(--primary-dark);
+  border: 1px solid #0A314D;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-dark);
-  transition: all var(--transition-speed) ease;
+  color: #0A314D;
+  transition: all 0.35s ease;
 }
 
 .icon-minus { display: none; }
@@ -115,7 +107,7 @@
 .accordion-content-wrapper {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   flex-grow: 1;
 }
 
@@ -133,8 +125,8 @@
 }
 
 .drive-time-badge {
-  background-color: var(--bg-light);
-  color: var(--primary-dark);
+  background-color: #F4F7F9;
+  color: #0A314D;
   font-weight: 600;
   font-size: 13px;
   padding: 10px 16px;
@@ -172,8 +164,8 @@
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  background-color: var(--primary-dark);
-  color: var(--white);
+  background-color: #0A314D;
+  color: #FFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -182,52 +174,46 @@
   font-weight: 600;
 }
 
-/* Оновлений контейнер */
 .arrival-info {
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid #D3DFE8;
   padding-top: 16px;
   margin-top: auto;
 }
 
-/* Стилі для клікабельного посилання */
 .arrival-link {
   display: flex;
   align-items: center;
-  gap: 8px; /* Відстань між іконкою та текстом */
+  gap: 8px;
   font-weight: 700;
   font-size: 15px;
-  color: var(--primary-dark);
-  text-decoration: none; /* Прибираємо стандартне підкреслення посилання */
-  transition: opacity var(--transition-speed) ease;
+  color: #0A314D;
+  text-decoration: none;
+  transition: opacity 0.35s ease;
 }
 
-/* Ефект при наведенні мишкою */
 .arrival-link:hover {
-  opacity: 0.7; /* Трохи прозорішає при наведенні, щоб було видно, що це кнопка */
-  /* Або можна розкоментувати рядок нижче, якщо хочете підкреслення */
-  /* text-decoration: underline; */
+  opacity: 0.7;
 }
 
-/* Стилі самої іконки геолокації */
 .icon-location {
   width: 20px;
   height: 20px;
-  flex-shrink: 0; /* Щоб іконка не стискалася, якщо текст переноситься */
+  flex-shrink: 0;
 }
 
 /* === IS ACTIVE (OPEN) === */
 .accordion-item.is-active {
-  border-color: var(--primary-dark);
+  border-color: #0A314D;
   align-self: stretch;
 }
 
 .accordion-item.is-active .accordion-trigger {
-  background-color: var(--primary-dark);
+  background-color: #0A314D !important;
 }
 
 .accordion-item.is-active .city-title,
 .accordion-item.is-active .time-subtitle {
-  color: var(--white);
+  color: #FFF;
 }
 
 .accordion-item.is-active .time-subtitle {
@@ -235,13 +221,13 @@
 }
 
 .accordion-item.is-active .dot {
-  background-color: var(--white);
+  background-color: #FFF;
 }
 
 .accordion-item.is-active .trigger-icon {
   background-color: rgba(255, 255, 255, 0.15);
   border-color: transparent;
-  color: var(--white);
+  color: #FFF;
 }
 
 .accordion-item.is-active .icon-plus { display: none; }
@@ -254,9 +240,9 @@
 .directions-footer {
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid #D3DFE8;
   text-align: center;
-  color: var(--text-gray);
+  color: #6B7A85;
   font-size: 13px;
   line-height: 1.5;
 }
