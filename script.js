@@ -3,14 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", function () {
-      // Знаходимо батьківський елемент конкретної картки
+      // Find parent element current accordion
       const parentItem = this.closest(".accordion-item");
       
       // Перемикаємо клас відкриття
       parentItem.classList.toggle("is-active");
       
-      // Якщо хочеш, щоб при відкритті одного, інші автоматично закривалися, 
-      // розкоментуй цей блок коду нижче:
+      // If you want to close other accordion items use this code below 
       /*
       const allItems = document.querySelectorAll(".accordion-item");
       allItems.forEach(item => {
