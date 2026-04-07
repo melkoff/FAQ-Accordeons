@@ -182,13 +182,37 @@
   font-weight: 600;
 }
 
+/* Оновлений контейнер */
 .arrival-info {
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--primary-dark);
   border-top: 1px solid var(--border-color);
   padding-top: 16px;
   margin-top: auto;
+}
+
+/* Стилі для клікабельного посилання */
+.arrival-link {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Відстань між іконкою та текстом */
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--primary-dark);
+  text-decoration: none; /* Прибираємо стандартне підкреслення посилання */
+  transition: opacity var(--transition-speed) ease;
+}
+
+/* Ефект при наведенні мишкою */
+.arrival-link:hover {
+  opacity: 0.7; /* Трохи прозорішає при наведенні, щоб було видно, що це кнопка */
+  /* Або можна розкоментувати рядок нижче, якщо хочете підкреслення */
+  /* text-decoration: underline; */
+}
+
+/* Стилі самої іконки геолокації */
+.icon-location {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0; /* Щоб іконка не стискалася, якщо текст переноситься */
 }
 
 /* === IS ACTIVE (OPEN) === */
